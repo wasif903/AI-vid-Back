@@ -10,15 +10,17 @@ router.post("/contact", async (req, res) => {
       query: req.body.query,
       firstName: req.body.firstName,
       lastName: req.body.lastName,
+      userEmail: req.body.userEmail,
       message: req.body.message,
-      email: req.body.email,
     });
     const saveContact = await contact.save();
 
+    // Send confirmation email
+
     const mailOptions = {
-      from: "infoyousummarise@gmail.com",
-      to: contact.email,
-      subject: "YOUSUMMARIESE",
+      from: "infousummarise@gmail.com",
+      to: contact.userEmail,
+      subject: "YOUSUMMARISE",
       html: `Thank You For Contacting Us`,
     };
 
@@ -30,20 +32,20 @@ router.post("/contact", async (req, res) => {
       }
     });
 
-    const mailOptions2 = {
-      from: contact.email,
-      to: "infoyousummarise@gmail.com",
+    const To = {
+      from: contact.userEmail,
+      to: "infousummarise@gmail.com",
       subject: "YOUSUMMARISE",
       html: `
-      Query Type : ${req.body.query} <br/>
-      Email: ${req.body.email} <br/>
-      First Name: ${req.body.firstName} <br/>
-      Last Name: ${req.body.lastName} <br/>
-      Message: ${req.body.message} <br/>
+      Query Type: ${req.body.query},
+      First Name: ${req.body.firstName},
+      Last Name: ${req.body.lastName},
+      Email: ${req.body.userEmail},
+      Message: ${req.body.message},
       `,
     };
 
-    transporter.sendMail(mailOptions2, (err, info) => {
+    transporter.sendMail(To, (err, info) => {
       if (err) {
         console.log(err);
       } else {

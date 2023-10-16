@@ -6,7 +6,7 @@ const contactSchema = new Schema(
     query: {
       type: String,
     },
-    email: {
+    userEmail: {
       type: String,
     },
     firstName: {
@@ -16,6 +16,9 @@ const contactSchema = new Schema(
       type: String,
     },
     lastName: {
+      type: String,
+    },
+    message: {
       type: String,
     },
   },

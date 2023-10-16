@@ -12,20 +12,3 @@ let transporter = nodemailer.createTransport({
 });
 
 export default transporter;
-
-
-// Send confirmation email
-//     const mailOptions = {
-//       from: "mynextek@gmail.com",
-//       to: targetUser.email,
-//       subject: "New Interest Card Recieved",
-//       html: `${sender.email} Sent You An Interest Card`,
-//     };
-
-//     transporter.sendMail(mailOptions, (err, info) => {
-//       if (err) {
-//         console.log(err);
-//       } else {
-//         console.log("Email sent: " + info.response);
-//       }
-//     });
