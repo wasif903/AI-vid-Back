@@ -6,26 +6,9 @@ let transporter = nodemailer.createTransport({
   secure: true, // use SSL if required
   auth: {
     user: "infoyousummarise@gmail.com",
-    pass: "yxhxeyvxanonktfz",
+    pass: "xzxlusvzglmbrydr",
   },
   tls: { rejectUnauthorized: false },
 });
 
 export default transporter;
-
-
-// Send confirmation email
-//     const mailOptions = {
-//       from: "mynextek@gmail.com",
-//       to: targetUser.email,
-//       subject: "New Interest Card Recieved",
-//       html: `${sender.email} Sent You An Interest Card`,
-//     };
-
-//     transporter.sendMail(mailOptions, (err, info) => {
-//       if (err) {
-//         console.log(err);
-//       } else {
-//         console.log("Email sent: " + info.response);
-//       }
-//     });

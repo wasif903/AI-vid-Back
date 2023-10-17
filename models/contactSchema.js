@@ -12,6 +12,9 @@ const contactSchema = new Schema(
     firstName: {
       type: String,
     },
+    message: {
+      type: String,
+    },
     lastName: {
       type: String,
     },
