@@ -18,7 +18,7 @@ router.post("/contact", async (req, res) => {
     // Send confirmation email
 
     const mailOptions = {
-      from: "infousummarise@gmail.com",
+      from: "infoyousummarise@gmail.com",
       to: contact.userEmail,
       subject: "YOUSUMMARISE",
       html: `Thank You For Contacting Us`,
@@ -34,7 +34,7 @@ router.post("/contact", async (req, res) => {
 
     const To = {
       from: contact.userEmail,
-      to: "infousummarise@gmail.com",
+      to: "infoyousummarise@gmail.com",
       subject: "YOUSUMMARISE",
       html: `
       Query Type: ${req.body.query},
