@@ -44,6 +44,23 @@ router.post("/summary", async (req, res) => {
         max_tokens: 1024,
       });
 
+
+      //  Counter Code
+      const findCouters = await counter.find();
+      const reversed = findCouters.reverse();
+      const currentCount = reversed[0];
+      if (findCouters.length !== 0) {
+        const createCount = new counter({
+          counter: currentCount.counter + 1,
+        });
+        await createCount.save();
+      } else {
+        const createCount = new counter({
+          counter: 1,
+        });
+        await createCount.save();
+      }
+
       const data = response.choices[0].message.content;
       res.status(200).json(data);
     } else if (
@@ -76,6 +93,23 @@ router.post("/summary", async (req, res) => {
       const keyPointsArray = data.split("\n").map((point, index) => ({
         content: point,
       }));
+
+
+      //  Counter Code
+      const findCouters = await counter.find();
+      const reversed = findCouters.reverse();
+      const currentCount = reversed[0];
+      if (findCouters.length !== 0) {
+        const createCount = new counter({
+          counter: currentCount.counter + 1,
+        });
+        await createCount.save();
+      } else {
+        const createCount = new counter({
+          counter: 1,
+        });
+        await createCount.save();
+      }
 
       res.status(200).json(keyPointsArray);
     }
